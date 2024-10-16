@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "3fb46444-992b-4c0a-9456-ce21f38c0aa4",
+		"name": "assignment API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29666009"
+	},
+	"item": [
+		{
+			"name": "Get all assignments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "m1a2r3k4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/assignments",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"assignments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Assignment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "m1a2r3k4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/assignments/1",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"assignments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mark as done",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "m1a2r3k4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/assignments/done/2",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"assignments",
+						"done",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mark as not done",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "m1a2r3k4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/assignments/undone/2",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"assignments",
+						"undone",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Assignment not Authorized",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"subject\": \"English\", \"assignment\": \"Proposal\", \"due_date\": \"2021-10-20\", \"id\": 1, \"done\": \"false\"}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/assignments",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"assignments"
+					],
+					"query": [
+						{
+							"key": "subject",
+							"value": "English",
+							"disabled": true
+						},
+						{
+							"key": "assignment",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Assignment with same id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "m1a2r3k4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"subject\": \"English\", \"assignment\": \"Proposal\", \"due_date\": \"2021-10-20\", \"id\": 1, \"done\": \"false\"}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/assignments",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"assignments"
+					],
+					"query": [
+						{
+							"key": "subject",
+							"value": "English",
+							"disabled": true
+						},
+						{
+							"key": "assignment",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add assignment valid",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "m1a2r3k4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"subject\": \"English\", \"assignment\": \"Proposal\", \"due_date\": \"2021-10-20\", \"id\": 2, \"done\": \"false\"}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/assignments",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"assignments"
+					],
+					"query": [
+						{
+							"key": "subject",
+							"value": "English",
+							"disabled": true
+						},
+						{
+							"key": "assignment",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "m1a2r3k4",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "localhost:3000"
+		}
+	]
+}
